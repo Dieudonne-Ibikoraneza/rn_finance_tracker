@@ -2,6 +2,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useFonts } from 'expo-font';
 import { Stack, useRouter, useSegments } from 'expo-router';
 import { useEffect, useState } from 'react';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import "./globals.css";
 
 export default function RootLayout() {
@@ -33,17 +34,19 @@ export default function RootLayout() {
   }
 
   return (
-    <Stack
-      screenOptions={{
-        headerStyle: {
-          backgroundColor: '#030014',
-        },
-        headerTintColor: '#D6C7FF',
-        headerTitleStyle: {
-          fontFamily: 'SpaceMono',
-        },
-        headerShown: false,
-      }}
-    />
+    <SafeAreaProvider>
+      <Stack
+        screenOptions={{
+          headerStyle: {
+            backgroundColor: '#030014',
+          },
+          headerTintColor: '#D6C7FF',
+          headerTitleStyle: {
+            fontFamily: 'SpaceMono',
+          },
+          headerShown: false,
+        }}
+      />
+    </SafeAreaProvider>
   );
 }

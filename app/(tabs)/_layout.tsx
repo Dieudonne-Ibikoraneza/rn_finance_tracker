@@ -38,9 +38,19 @@ export default function TabLayout() {
       <Tabs.Screen
         name="new"
         options={{
-          title: 'Add New Expense',
+          title: 'Add Expense',
           tabBarIcon: ({ color }) => (
             <FontAwesome name="plus-circle" size={24} color={color} />
+          ),
+          tabBarStyle: { display: 'none' },
+        }}
+      />
+      <Tabs.Screen
+        name="profile"
+        options={{
+          title: 'Profile',
+          tabBarIcon: ({ color }) => (
+            <FontAwesome name="user" size={24} color={color} />
           ),
         }}
       />

@@ -53,11 +53,11 @@ export default function ExpensesScreen() {
     >
       <View className="flex-row justify-between items-center">
         <View>
-          <Text className="text-lg font-semibold text-light-100">{item.name}</Text>
-          <Text className="text-light-300">{item.description}</Text>
+          <Text className="text-lg font-semibold text-light-100 font-['SpaceMono'] ">{item.name}</Text>
+          <Text className="text-light-300 font-['SpaceMono'] ">{item.description}</Text>
         </View>
         <View className="items-end">
-          <Text className="text-lg font-bold text-accent">${item.amount}</Text>
+          <Text className="text-lg font-bold text-accent ">${item.amount}</Text>
           <Text className="text-light-300 text-sm">
             {new Date(item.createdAt).toLocaleDateString()}
           </Text>
