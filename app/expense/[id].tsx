@@ -1,3 +1,4 @@
+import { MaterialIcons } from '@expo/vector-icons';
 import { router, useLocalSearchParams } from 'expo-router';
 import React, { useEffect, useState } from 'react';
 import { Alert, SafeAreaView, Text, TouchableOpacity, View } from 'react-native';
@@ -52,28 +53,31 @@ export default function ExpenseDetailsScreen() {
 
   if (loading) {
     return (
-      <View className="flex-1 bg-white justify-center items-center">
-        <Text>Loading...</Text>
+      <View className="flex-1 bg-primary justify-center items-center">
+        <Text className="text-light-300">Loading...</Text>
       </View>
     );
   }
 
   if (!expense) {
     return (
-      <View className="flex-1 bg-white justify-center items-center">
-        <Text>Expense not found</Text>
+      <View className="flex-1 bg-primary justify-center items-center">
+        <Text className="text-light-300">Expense not found</Text>
       </View>
     );
   }
 
   return (
-    <SafeAreaView className="flex-1 bg-white p-4">
-      <View className="bg-blue-50 p-6 rounded-lg mb-6">
-        <Text className="text-lg font-bold mb-2">{expense.name}</Text>
-        <Text className="text-gray-700 mb-1">{expense.description}</Text>
-        <Text className="text-gray-500 mb-1">Category: {expense.category || 'N/A'}</Text>
-        <Text className="text-gray-500 mb-1">Date: {expense.date ? new Date(expense.date).toLocaleDateString() : 'N/A'}</Text>
-        <Text className="text-lg font-bold text-blue-600 mt-2">${expense.amount}</Text>
+    <SafeAreaView className="flex-1 bg-primary p-4">
+      <TouchableOpacity onPress={() => router.back()} className="mb-4" style={{ width: 40 }}>
+        <MaterialIcons name="arrow-back" size={28} color="#D6C7FF" />
+      </TouchableOpacity>
+      <View className="bg-dark-100 p-6 rounded-lg mb-6">
+        <Text className="text-lg font-bold mb-2 text-light-100">{expense.name}</Text>
+        <Text className="text-light-300 mb-1">{expense.description}</Text>
+        <Text className="text-light-300 mb-1">Category: <Text className="text-light-100">{expense.category || 'N/A'}</Text></Text>
+        <Text className="text-light-300 mb-1">Date: <Text className="text-light-100">{expense.date ? new Date(expense.date).toLocaleDateString() : 'N/A'}</Text></Text>
+        <Text className="text-lg font-bold text-accent mt-2">${expense.amount}</Text>
       </View>
       <TouchableOpacity
         className="bg-red-500 p-4 rounded-lg mt-6"

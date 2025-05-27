@@ -42,6 +42,7 @@ export default function RootLayout() {
         headerTitleStyle: {
           fontFamily: 'SpaceMono',
         },
+        headerShown: false,
       }}
     />
   );

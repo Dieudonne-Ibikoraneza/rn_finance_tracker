@@ -38,7 +38,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="new"
         options={{
-          title: 'Add',
+          title: 'Add New Expense',
           tabBarIcon: ({ color }) => (
             <FontAwesome name="plus-circle" size={24} color={color} />
           ),

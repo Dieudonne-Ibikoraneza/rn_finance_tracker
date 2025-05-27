@@ -48,17 +48,17 @@ export default function ExpensesScreen() {
 
   const renderExpenseItem = ({ item }: { item: Expense }) => (
     <TouchableOpacity
-      className="bg-white p-4 rounded-lg mb-2 shadow-sm"
+      className="bg-dark-100 p-4 rounded-lg mb-2 shadow-sm"
       onPress={() => router.push(`/expense/${item.id}`)}
     >
       <View className="flex-row justify-between items-center">
         <View>
-          <Text className="text-lg font-semibold">{item.name}</Text>
-          <Text className="text-gray-600">{item.description}</Text>
+          <Text className="text-lg font-semibold text-light-100">{item.name}</Text>
+          <Text className="text-light-300">{item.description}</Text>
         </View>
         <View className="items-end">
-          <Text className="text-lg font-bold text-blue-500">${item.amount}</Text>
-          <Text className="text-gray-500 text-sm">
+          <Text className="text-lg font-bold text-accent">${item.amount}</Text>
+          <Text className="text-light-300 text-sm">
             {new Date(item.createdAt).toLocaleDateString()}
           </Text>
         </View>
@@ -67,20 +67,20 @@ export default function ExpensesScreen() {
   );
 
   return (
-    <SafeAreaView className="flex-1 bg-gray-100">
+    <SafeAreaView className="flex-1 bg-primary">
       <TouchableOpacity
-        style={{ position: 'absolute', top: -10, right: 20, zIndex: 10 }}
+        style={{ position: 'absolute', top: -45, right: 20, zIndex: 10 }}
         onPress={handleLogout}
         hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
       >
         <MaterialIcons name="logout" size={28} color="#ef4444" />
       </TouchableOpacity>
       {loading ? (
-        <View className="flex-1 justify-center items-center">
-          <Text>Loading expenses...</Text>
+        <View className="flex-1 justify-center items-center bg-primary">
+          <Text className="text-light-300">Loading expenses...</Text>
         </View>
       ) : (
-        <View className="flex-1">
+        <View className="flex-1 bg-primary">
           <FlatList
             data={expenses}
             renderItem={renderExpenseItem}
@@ -92,7 +92,7 @@ export default function ExpensesScreen() {
             }}
             ListEmptyComponent={
               <View className="flex-1 justify-center items-center p-4">
-                <Text className="text-gray-500">No expenses found</Text>
+                <Text className="text-light-300">No expenses found</Text>
               </View>
             }
             ListFooterComponent={
